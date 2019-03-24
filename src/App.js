@@ -47,9 +47,7 @@ const chartOptions = {
         }
     },
     tooltip: {
-        formatter: function() {
-            return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
-        },
+
         enabled: false
     },
     series: [{
