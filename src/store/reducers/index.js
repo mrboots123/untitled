@@ -3,7 +3,7 @@ import {
     FETCH_DATA_LAYERS,
     FETCH_LOCATION_SEARCH_FAILURE,
     FETCH_LOCATION_SEARCH_LOADING,
-    FETCH_LOCATION_SEARCH_SUCCESS, SET_BOUNDS, SET_FILTERS, SET_VIEWPORT
+    FETCH_LOCATION_SEARCH_SUCCESS, SET_BOUNDS, SET_FILTERS, SET_SELECTED, SET_VIEWPORT
 } from "../ActionTypes";
 
 const initialState = {
@@ -13,7 +13,8 @@ const initialState = {
     },
     userLocation: {},
     bounds: {},
-    filters: []
+    filters: [],
+    selected: -1
 };
 
 const setReducer = (state= initialState, action) => {
@@ -24,6 +25,8 @@ const setReducer = (state= initialState, action) => {
           return { ...state, filters: action.filters }
       case SET_BOUNDS:
           return { ...state, bounds: action.bounds }
+      case SET_SELECTED:
+          return { ...state, selected: action.selected }
       default:
           return state;
   }

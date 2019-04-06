@@ -3,7 +3,7 @@ import {
     COUNTY_LAYER,
     FETCH_DATA_LAYERS, FETCH_LOCATION_SEARCH_FAILURE,
     FETCH_LOCATION_SEARCH_LOADING, FETCH_LOCATION_SEARCH_SUCCESS,
-    NATION_LAYER, SET_BOUNDS, SET_FILTERS, SET_VIEWPORT,
+    NATION_LAYER, SET_BOUNDS, SET_FILTERS, SET_SELECTED, SET_VIEWPORT,
     STATE_LAYER
 } from "../ActionTypes";
 import nations from '../../nation'
@@ -79,15 +79,22 @@ export const setViewPort = (viewport) => (dispatch) => {
 }
 
 export const setBounds = (bounds) => (dispatch) => {
-    dispatch({
-       type: SET_BOUNDS,
-       bounds
-    });
+    // dispatch({
+    //    type: SET_BOUNDS,
+    //    bounds
+    // });
 }
 
 export const setFilters = (filters) => (dispatch) => {
     dispatch({
         type: SET_FILTERS,
         filters
+    });
+}
+
+export const setSelected = (selected) => (dispatch) => {
+    dispatch({
+        type: SET_SELECTED,
+        selected
     });
 }

@@ -6,3 +6,7 @@ export const LAYER_COLORS = [
     '#91bfdb',
     '#4575b4'
 ]
+
+export const DEFAULT_COLOR = [
+    '#fff'
+]

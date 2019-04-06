@@ -155,7 +155,11 @@ input[type=search]{
     -webkit-transition: box-shadow .1s ease,width .1s ease;
 }
 
-
+.content{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
 .p-inherit{
     padding: inherit;
     margin: inherit;

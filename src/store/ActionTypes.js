@@ -9,6 +9,7 @@ export const BLOCK_LAYER = 'BLOCK_LAYER';
 export const SET_VIEWPORT = 'SET_VIEWPORT';
 export const SET_BOUNDS = 'SET_BOUNDS';
 export const SET_FILTERS = 'SET_FILTERS';
+export const SET_SELECTED = 'SET_SELECTED';
 
 /* API CALLS */
 

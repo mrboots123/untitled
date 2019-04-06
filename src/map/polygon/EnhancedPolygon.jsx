@@ -27,16 +27,7 @@ class EnhancedPolygon extends Component{
 
         return(
             <Fragment>
-                {
-                    this.props.selected &&
-                    <Popup
-                        position={this.props.center}
-                    >
-                        <div>Phoenix, AZ</div>
-                        <div>Population: 1.626 Million</div>
-                        <div>Area</div>
-                    </Popup>
-                }
+
                 <Poly
                     {...this.props}
                 />

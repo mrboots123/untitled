@@ -45,6 +45,7 @@ class InjusticeMap extends React.Component {
         this.setViewport = this.setViewport.bind(this);
         this.setBounds = this.setBounds.bind(this);
         this.leaflet = React.createRef();
+        this.testFitBounds = this.testFitBounds.bind(this)
     }
 
     componentDidMount(){
@@ -53,15 +54,24 @@ class InjusticeMap extends React.Component {
 
 
 
+    testFitBounds (bounds) {
+        this.leaflet.current.leafletElement.fitBounds(bounds);
+    }
 
     moveListener(){
         if(this.leaflet){
             const latLngBounds = this.leaflet.current.leafletElement.getBounds();
 
-            this.props.setBounds([
-                [latLngBounds.getNorthWest().lat,latLngBounds.getNorthWest().lng],
-                [latLngBounds.getSouthEast().lat,latLngBounds.getSouthEast().lng]
-            ])
+            // if(this.props.bounds !== [
+            //     [latLngBounds.getNorthWest().lat,latLngBounds.getNorthWest().lng],
+            //     [latLngBounds.getSouthEast().lat,latLngBounds.getSouthEast().lng]
+            // ]){
+            //     this.props.setBounds([
+            //         [latLngBounds.getNorthWest().lat,latLngBounds.getNorthWest().lng],
+            //         [latLngBounds.getSouthEast().lat,latLngBounds.getSouthEast().lng]
+            //     ])
+            // }
+
             // this.setState({
             //         boundingBox: {
             //             northWest: [latLngBounds.getNorthWest().lat,latLngBounds.getNorthWest().lng],
@@ -220,6 +230,7 @@ class InjusticeMap extends React.Component {
                     setLocation={this.props.setViewport}
                 />
 
+
                 {
                     <PolygonList
                         isEnabled={this.state.isBaseMap}
@@ -227,9 +238,12 @@ class InjusticeMap extends React.Component {
                         layer={this.props.layer.layer_type}
                         setBounds={this.props.setBounds}
                         fetchLayers={this.props.fetchLayers}
+                        setSelected={this.props.setSelected}
+                        fitBounds={this.testFitBounds}
                     />
 
                 }
+
 
             </Map>
         );
