@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1b3af7f-03a9-4017-80e5-858a4f9d6004" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Race_Layers.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Race_Layers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/InjusticeMap.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/InjusticeMap.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/polygon/EnhancedPolygon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/polygon/EnhancedPolygon.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/polygon/PolygonList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/polygon/PolygonList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/ActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/ActionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="b1b3af7f-03a9-4017-80e5-858a4f9d6004" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -46,7 +31,7 @@
           <entry key="flow" value="2" />
           <entry key="html" value="2" />
           <entry key="js" value="69" />
-          <entry key="json" value="39" />
+          <entry key="json" value="40" />
           <entry key="jsx" value="121" />
           <entry key="svg" value="2" />
         </counts>
@@ -56,7 +41,7 @@
           <entry key="CSS" value="23" />
           <entry key="Flow" value="2" />
           <entry key="HTML" value="2" />
-          <entry key="JSON" value="39" />
+          <entry key="JSON" value="40" />
           <entry key="JSX Harmony" value="121" />
           <entry key="JavaScript" value="69" />
           <entry key="SVG" value="2" />
@@ -108,14 +93,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/map/components/BlockInformation.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-207">
+            <state relative-caret-position="105">
               <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -315,6 +309,11 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="injustice" branch="test" />
+    </force-push-targets>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -400,7 +399,7 @@
       <workItem from="1554497643676" duration="40000" />
       <workItem from="1554513884907" duration="295000" />
       <workItem from="1554514849268" duration="557000" />
-      <workItem from="1554557588162" duration="900000" />
+      <workItem from="1554557588162" duration="1943000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1553443705899</created>
@@ -416,23 +415,30 @@
       <option name="project" value="LOCAL" />
       <updated>1553443885875</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="start">
+      <created>1554591101968</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1554591101968</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249200000" />
+    <option name="totallyTimeSpent" value="250243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="775" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46653143" visible="true" weight="0.18745595" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46653143" visible="true" weight="0.18745595" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.53346854" side_tool="true" weight="0.18745595" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27818447" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27818447" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -440,7 +446,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.329429" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003524" side_tool="true" weight="0.32796487" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49964765" weight="0.32796487" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49964765" visible="true" weight="0.32796487" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -574,13 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -783,11 +782,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/map/components/BlockInformation.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-207">
+        <state relative-caret-position="105">
           <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
