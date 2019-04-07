@@ -10,7 +10,6 @@ import LocationButton from "./components/LocationButton";
 import isEmpty from 'lodash/isEmpty'
 import {COUNTY_LAYER, NATION_LAYER, STATE_LAYER} from "../store/ActionTypes";
 import {createPolygonFromBounds, isNestedPolygon} from '../utility/Utilities'
-import states from '../Blocks'
 
 const customStyles = {
     content : {
@@ -132,7 +131,7 @@ class InjusticeMap extends React.Component {
             this.setState({
                 userLocation: location
             }, () => {
-                this.props.fetchLayers(COUNTY_LAYER);
+                // this.props.fetchLayers(COUNTY_LAYER);
                 this.props.setViewport(location);
             })
         }
