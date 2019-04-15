@@ -1,4 +1,5 @@
 import * as turf from '@turf/turf'
+import blocks from '../Blocks'
 
 export const createPolygonFromBounds = (latLngBounds) => {
     let latlngs = [];
@@ -14,15 +15,23 @@ export const createPolygonFromBounds = (latLngBounds) => {
 }
 
 
-const test = (feature, bbox) => {
-            feature.geometry.coordinates.forEach(ele => {
-                const poly = turf.polygon(ele)
-                if(turf.booleanWithin(poly, bbox)){
-                    return true;
-                }
 
-            })
-    return false;
+export const moveMeToServer = (bounds) => {
+    const bbox = turf.polygon([createPolygonFromBounds(bounds)]);
+    let featureCollection = {
+        type: "FeatureCollection"
+    }
+    let list = []
+    turf.flip(blocks).features.map(feature => {
+        if(feature.geometry.type === 'Polygon'){
+            if(!turf.booleanDisjoint(feature, bbox)){
+                list.push(feature)
+            }
+        }
+    })
+    featureCollection.features = list
+
+    return featureCollection
 }
 
 export const isNestedPolygon = (features, bbox) => {
@@ -43,4 +52,9 @@ export const isNestedPolygon = (features, bbox) => {
   });
 
     return true;
+}
+
+
+export const reverseGeoCoding = (lat, lng) => {
+
 }

@@ -1,13 +1,23 @@
 import {
     BLOCK_LAYER,
     COUNTY_LAYER,
-    FETCH_DATA_LAYERS, FETCH_LOCATION_SEARCH_FAILURE,
-    FETCH_LOCATION_SEARCH_LOADING, FETCH_LOCATION_SEARCH_SUCCESS,
-    NATION_LAYER, SET_BOUNDS, SET_FILTERS, SET_SELECTED, SET_VIEWPORT,
+    FETCH_DATA_LAYERS, FETCH_DATA_LAYERS_TEST,
+    FETCH_FILTERS_FAILURE,
+    FETCH_FILTERS_LOADING,
+    FETCH_FILTERS_SUCCESS,
+    FETCH_LOCATION_SEARCH_FAILURE,
+    FETCH_LOCATION_SEARCH_LOADING,
+    FETCH_LOCATION_SEARCH_SUCCESS, FETCH_TILES_FAILURE, FETCH_TILES_LOADING, FETCH_TILES_SUCCESS,
+    NATION_LAYER,
+    SET_BOUNDS,
+    SET_FILTERS,
+    SET_SELECTED,
+    SET_VIEWPORT,
     STATE_LAYER
 } from "../ActionTypes";
 import nations from '../../Blocks'
 import * as turf from "@turf/turf";
+import {moveMeToServer} from "../../utility/Utilities";
 
 export const fetchDefaultLayer = () => (dispatch) => {
         dispatch({
@@ -19,8 +29,29 @@ export const fetchDefaultLayer = () => (dispatch) => {
         })
 }
 
+export const fetchTilesLayer = (bounds) => (dispatch) => {
+    dispatch({
+        type: FETCH_TILES_LOADING
+    });
+    return fetch(`http:replaceme`)
+        .then(response => response.json())
+        .then(json => dispatch({
+            type: FETCH_TILES_SUCCESS,
+            tiles: json
+        }))
+        .catch(() => dispatch({
+            type: FETCH_TILES_FAILURE,
+            tiles: moveMeToServer(bounds)
+        }));
+}
 
 export const fetchDataLayer = (layer) => (dispatch) => {
+        dispatch({
+            type: FETCH_DATA_LAYERS_TEST,
+
+                test: layer
+
+        })
     // if(layer === NATION_LAYER){
     //     dispatch({
     //         type: FETCH_DATA_LAYERS,
@@ -68,6 +99,21 @@ export const fetchLocations = (query) => (dispatch) => {
         }));
 }
 
+export const fetchFilters = () => (dispatch) => {
+    dispatch({
+        type: FETCH_FILTERS_LOADING
+    });
+    return fetch(`https://myserver.com/filters`)
+        .then(response => response.json())
+        .then(json => dispatch({
+            type: FETCH_FILTERS_SUCCESS,
+            filters: json
+        }))
+        .catch(() => dispatch({
+            type: FETCH_FILTERS_FAILURE
+        }));
+}
+
 export const setViewPort = (viewport) => (dispatch) => {
     dispatch({
         type: SET_VIEWPORT,
@@ -76,10 +122,10 @@ export const setViewPort = (viewport) => (dispatch) => {
 }
 
 export const setBounds = (bounds) => (dispatch) => {
-    // dispatch({
-    //    type: SET_BOUNDS,
-    //    bounds
-    // });
+    dispatch({
+       type: SET_BOUNDS,
+       bounds
+    });
 }
 
 export const setFilters = (filters) => (dispatch) => {

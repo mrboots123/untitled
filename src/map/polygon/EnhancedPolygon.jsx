@@ -18,8 +18,13 @@ class EnhancedPolygon extends Component{
         super(props)
     }
 
+
+    //TODO:PRIORITY
+
+    //TODO: FIX THIS METHOD, CURRENTLY SOME TILES ARE NOT RELOADING WHEN SEARCH BUTTON IS PRESSED
+
     shouldComponentUpdate(nextProps, nextState){
-        return ( nextProps.layer !== this.props.layer  || (nextProps.fillOpacity !== this.props.fillOpacity ))
+        return ( nextProps.layer !== this.props.layer  || (nextProps.fillOpacity !== this.props.fillOpacity ) || (nextProps.color !== this.props.color ) || (nextProps.size !== this.props.size))
     }
 
 

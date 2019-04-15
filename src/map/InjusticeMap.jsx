@@ -8,8 +8,12 @@ import BaseMapToggle from "./components/BaseMapToggle";
 import SearchArea from "./components/SearchArea";
 import LocationButton from "./components/LocationButton";
 import isEmpty from 'lodash/isEmpty'
+import isEqual from 'lodash/isEqual'
 import {COUNTY_LAYER, NATION_LAYER, STATE_LAYER} from "../store/ActionTypes";
 import {createPolygonFromBounds, isNestedPolygon} from '../utility/Utilities'
+import flatten from 'lodash/flatten'
+import blocks from '../Blocks'
+
 
 const customStyles = {
     content : {
@@ -21,9 +25,7 @@ const customStyles = {
         transform             : 'translate(-50%, -50%)'
     }
 };
-//TODO: THINK OF THE LOADING STRATEGY OF THE LAYERS, WE HAVE DEVELOPED THE HARD PART. NOW JUST NEED THE BUSINESS LOGICS -ZOOM IN OUT
-//todo: at around zoom level 10-11 we should load the counties layer? then after that it should take over the dynamic layer change
-//todo: lowest layer reached by dynamic county is 9?
+//TODO: null check the tiles
 class InjusticeMap extends React.Component {
     constructor() {
         super();
@@ -36,9 +38,8 @@ class InjusticeMap extends React.Component {
                 center: [40.7128, -74.0060],
                 zoom: 3
             },
-            bounds: {},
-
-        };
+            bounds: {}
+        }
         this.setBaseMap = this.setBaseMap.bind(this);
         this.setRedoSearch = this.setRedoSearch.bind(this);
         this.setViewport = this.setViewport.bind(this);
@@ -48,79 +49,62 @@ class InjusticeMap extends React.Component {
     }
 
     componentDidMount(){
-
+        this.setState({ oldSelected: this.props.selected })
     }
 
 
 
     testFitBounds (bounds) {
+
         this.leaflet.current.leafletElement.fitBounds(bounds);
+        this.props.setBounds(bounds);
     }
 
+
     moveListener(){
+
+        this.props.setQueryParams()
         if(this.leaflet){
-            const latLngBounds = this.leaflet.current.leafletElement.getBounds();
+                const latLngBounds = this.leaflet.current.leafletElement.getBounds();
 
-            // if(this.props.bounds !== [
-            //     [latLngBounds.getNorthWest().lat,latLngBounds.getNorthWest().lng],
-            //     [latLngBounds.getSouthEast().lat,latLngBounds.getSouthEast().lng]
-            // ]){
-            //     this.props.setBounds([
-            //         [latLngBounds.getNorthWest().lat,latLngBounds.getNorthWest().lng],
-            //         [latLngBounds.getSouthEast().lat,latLngBounds.getSouthEast().lng]
-            //     ])
-            // }
 
-            // this.setState({
-            //         boundingBox: {
-            //             northWest: [latLngBounds.getNorthWest().lat,latLngBounds.getNorthWest().lng],
-            //             southWest: [latLngBounds.getSouthWest().lat,latLngBounds.getSouthWest().lng],
-            //             northEast: [latLngBounds.getNorthEast().lat,latLngBounds.getNorthEast().lng],
-            //             southEast: [latLngBounds.getSouthEast().lat,latLngBounds.getSouthEast().lng]
-            //         }
-            //     }, () =>
-            //
-            //     {
-            //
-            //         const bboxPoly = turf.polygon([createPolygonFromBounds(this.leaflet.current.leafletElement.getBounds())]);
-            //
-            //
-            //         //isNestedPolygon(turf.flip(states).features,bboxPoly)
-            //
-            //
-            //         //TODO: support multi polygon
-            //         turf.flip(states).features.map(feature => {
-            //             if(feature.geometry.type === 'Polygon'){
-            //
-            //               // console.log(turf.booleanWithin(feature, bboxPoly))
-            //             }
-            //             else{
-            //                 feature.geometry.coordinates.map(ele => {
-            //                     const poly = turf.polygon(ele)
-            //                    // console.log(turf.booleanWithin(poly, bboxPoly))
-            //                 })
-            //             }
-            //
-            //
-            //         })
-            //
-            //
-            //     }
-            // )
+                const testBound = [
+                    [latLngBounds.getNorthWest().lat,latLngBounds.getNorthWest().lng],
+                    [latLngBounds.getSouthEast().lat,latLngBounds.getSouthEast().lng]
+                ]
+
+                let  [[nwLat,nwLng],[seLat,seLng]]  = this.props.bounds
+                if(!((nwLat === testBound[0][0] && nwLng === testBound[0][1]) && (seLat === testBound[1][0] && seLng === testBound[1][1]))){
+                    //TODO: CLICKING A TILE AND RECENTERS IT SHOULD NOT CAUSE IT TO SET SEARCH TO TRUE
+                    //TODO: WE NEED TO PREVENT THIS METHOD FROM EXECUTING
+                    if(this.state.oldSelected !== this.props.selected ){ //-1 == 8 how to check if initial new position
+                        this.setState({redoSearch: false, oldSelected: this.props.selected})
+                    } else if(!(this.props.bounds[0].length <= 0)){
+                        this.setState({redoSearch: true})
+                    }
+
+                    this.props.setBounds(testBound)
+                }
+
+
         }
     }
 
     componentDidUpdate(prevProps, prevState){
 
 
+        if(prevProps.selected !== this.props.selected){
 
-        if(prevProps.viewport !== this.props.viewport && !this.state.redoSearch && this.props.viewport.zoom && this.props.viewport.zoom >= 12 && this.props.viewport !== this.state.userLocation ){
-            this.setState({ redoSearch: true })
+            this.setState({ oldSelected: prevProps.selected })
         }
 
-        /*
-            TODO: initially we load the nation layer, but if user location is available
-         */
+        if(this.leaflet) {
+
+
+            if((prevProps.bounds[0].length <= 0)){
+                this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds())
+            }
+        }
 
         if(this.props.coords && prevProps.coords !== this.props.coords){
             const { latitude: lat, longitude: lng } = this.props.coords
@@ -131,44 +115,9 @@ class InjusticeMap extends React.Component {
             this.setState({
                 userLocation: location
             }, () => {
-                // this.props.fetchLayers(COUNTY_LAYER);
                 this.props.setViewport(location);
             })
         }
-
-
-
-
-        //TODO: what level should we put the modal in?
-        //TODO: implement map level toast
-        //TODO: we need to find a way to know if polygon is in bounding box. if it is not then load the next layer. EG. change payloads to loadAscendingLayer and loadDescendingLayer
-        //TODO: clean up the props for polygon list
-        //TODO: we cant use zoom to identify the layer since it varies tooo much,MAYBE WE HAVE TO USE ONCLICK?
-
-        //TODO: make search area disappear if map enters state, or nation level
-        //TODO: set up mock dispatch calls in advance for redux
-        //TODO: BRING in css loaders for when new layer is being fetched, and gray out map? if call fails then ungray map and show toast
-        //TODO: ADD toast to map level: if click location, if not results ?
-        //TODO: when a user is on the  layer  and they click on it, it should take them one layer down
-        //TODO: if user location is not available fall back to ip search
-        //TODO: ADD site level toasts
-        //TODO: Add tooltips, modals
-        // if(prevState.viewport.zoom !== this.props.viewport.zoom){
-        //     const { zoom } = this.props.viewport
-        //     console.log(zoom)
-        //     if(zoom > 9){
-        //         console.log('all gucci we should be in the block layer')
-        //         /*
-        //          if zoom > 9 && !layer.block then load block
-        //          else continue using dynamic layer
-        //          */
-        //     }
-        //     else{
-        //         console.log('start the dynamic layer loading process')
-        //     }
-        // }
-
-
 
     }
 
@@ -177,7 +126,37 @@ class InjusticeMap extends React.Component {
     }
 
     setRedoSearch(){
-        this.setState({redoSearch: !this.state.redoSearch})
+        this.setState({redoSearch: !this.state.redoSearch}, () => {
+            // const bbox = turf.polygon([createPolygonFromBounds(this.leaflet.current.leafletElement.getBounds())]);
+
+            this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds())
+
+            // console.log(bbox)
+            //
+            //         let list = []
+            //         turf.flip(blocks).features.map(feature => {
+            //             if(feature.geometry.type === 'Polygon'){
+            //                 if(!turf.booleanDisjoint(feature, bbox)){
+            //                     list.push(feature.properties.AFFGEOID)
+            //                 }
+            //             }
+            //             //TODO: THIS IS FOR MULTI POLYGONS
+            //             // else{
+            //             //     feature.geometry.coordinates.map(ele => {
+            //             //         const poly = turf.polygon(ele)
+            //             //        // console.log(turf.booleanWithin(poly, bboxPoly))
+            //             //         if(turf.booleanWithin(poly, bbox)){
+            //             //             list.push(poly.properties.AFFGEOID)
+            //             //         }
+            //             //     })
+            //             // }
+            //
+            //
+            //         })
+
+            this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds())
+           // this.props.setTest(list)
+        })
     }
 
     setViewport(viewport){
@@ -192,15 +171,15 @@ class InjusticeMap extends React.Component {
 
     render() {
 
+
         return (
             this.props.isGeolocationAvailable && this.props.viewport &&
             <Map
                  viewport={ this.props.viewport }
                  onViewportChanged={this.props.setViewport}
-                 bounds={ !isEmpty(this.props.bounds) ? this.props.bounds : null }
                  style={{'height' : '100vh', 'width': '100%'}}
                  ref={this.leaflet}
-                 onMoveend={()=> this.moveListener()}
+                 onMoveend={ ()=> this.moveListener() }
 
             >
                 <TileLayer
@@ -230,18 +209,24 @@ class InjusticeMap extends React.Component {
                 />
 
 
+
                 {
+                    this.props.layer &&
+                    this.props.layer.features &&
                     <PolygonList
                         isEnabled={this.state.isBaseMap}
-                        paths={this.props.layer.positions.features }
+                        paths={this.props.layer.features }
                         layer={this.props.layer.layer_type}
                         setBounds={this.props.setBounds}
                         fetchLayers={this.props.fetchLayers}
                         setSelected={this.props.setSelected}
                         fitBounds={this.testFitBounds}
+                        selected={this.props.selected}
+                        test={this.props.test}
                     />
 
                 }
+
 
 
             </Map>

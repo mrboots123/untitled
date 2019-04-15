@@ -18,30 +18,29 @@ class CheckBoxList extends Component {
     selectItem(label){
         if(this.props.filters.includes(label)){
             this.props.setFilters(this.props.filters.filter(item => item !== label))
-            //this.setState({selected_items: this.props.filters.filter(item => item !== label)})
         }
         else {
-            // this.setState({selected_items: [...this.props.filters, label]})
             this.props.setFilters([...this.props.filters, label])
         }
     }
 
     leftColumnItems(){
+
         return this.props.items.map( (element, index )=>
             index % 2 === 0 &&
-            <div className="pt-2">
-                <CheckBox label={element.label} checked={this.props.filters.includes(element.label)} onChange={() => this.selectItem(element.label)}/>
+            <div className="pt-2" key={element.label}>
+                <CheckBox key={element.label} label={element.label} checked={this.props.filters.includes(element.id)} onChange={() => this.selectItem(element.id)}/>
             </div>
+
         )
     }
 
     rightColumnItems(){
-        return this.props.items.map( (element, index )=>
+        return this.props.items.map( (element, index ) =>
             index % 2 !== 0 &&
-            <div className="pt-2">
-                <CheckBox label={element.label} checked={this.props.filters.includes(element.label)} onChange={() => this.selectItem(element.label)}/>
+            <div className="pt-2" key={element.label}>
+                <CheckBox key={element.label} label={element.label} checked={this.props.filters.includes(element.id)} onChange={() => this.selectItem(element.id)}/>
             </div>
-
         )
     }
 

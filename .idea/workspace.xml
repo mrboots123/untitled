@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1b3af7f-03a9-4017-80e5-858a4f9d6004" name="Default Changelist" comment="" />
+    <list default="true" id="b1b3af7f-03a9-4017-80e5-858a4f9d6004" name="Default Changelist" comment="clearing up space">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Age_Layers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Income_Layers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Marital_Status.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Race_Layers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/panel/CheckBoxList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/panel/CheckBoxList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/InjusticeMap.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/InjusticeMap.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/components/BlockInformation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/components/BlockInformation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/polygon/EnhancedPolygon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/polygon/EnhancedPolygon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/polygon/PolygonList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/polygon/PolygonList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/ActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/ActionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Utilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -15,14 +34,14 @@
     <session id="-412995214">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="19" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.5" value="6" />
+          <entry key="project.open.time.5" value="9" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -30,9 +49,9 @@
           <entry key="css" value="23" />
           <entry key="flow" value="2" />
           <entry key="html" value="2" />
-          <entry key="js" value="69" />
-          <entry key="json" value="40" />
-          <entry key="jsx" value="121" />
+          <entry key="js" value="115" />
+          <entry key="json" value="59" />
+          <entry key="jsx" value="146" />
           <entry key="svg" value="2" />
         </counts>
       </usages-collector>
@@ -41,35 +60,35 @@
           <entry key="CSS" value="23" />
           <entry key="Flow" value="2" />
           <entry key="HTML" value="2" />
-          <entry key="JSON" value="40" />
-          <entry key="JSX Harmony" value="121" />
-          <entry key="JavaScript" value="69" />
+          <entry key="JSON" value="59" />
+          <entry key="JSX Harmony" value="146" />
+          <entry key="JavaScript" value="115" />
           <entry key="SVG" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="17" />
+          <entry key="ESLintLanguageService" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="675" />
           <entry key="html" value="5" />
-          <entry key="js" value="7552" />
-          <entry key="json" value="28" />
-          <entry key="jsx" value="22941" />
-          <entry key="txt" value="5" />
+          <entry key="js" value="11711" />
+          <entry key="json" value="322" />
+          <entry key="jsx" value="28801" />
+          <entry key="txt" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="675" />
           <entry key="HTML" value="5" />
-          <entry key="JSON" value="28" />
-          <entry key="JSX Harmony" value="22941" />
-          <entry key="JavaScript" value="7552" />
-          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="JSON" value="322" />
+          <entry key="JSX Harmony" value="28801" />
+          <entry key="JavaScript" value="11711" />
+          <entry key="PLAIN_TEXT" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -80,36 +99,32 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/map/InjusticeMap.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="105" column="30" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
+            <state relative-caret-position="336">
+              <caret line="85" column="55" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
               <folding>
-                <element signature="e#0#49#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#2318#2510#0" />
+                <element signature="n#!!block;n#setBaseMap#0;n#InjusticeMap#0" />
+                <element signature="n#!!block;n#setRedoSearch#0;n#InjusticeMap#0" />
+                <element signature="n#!!block;n#setViewport#0;n#InjusticeMap#0" />
+                <element signature="n#!!block;n#setBounds#0;n#InjusticeMap#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/map/components/BlockInformation.jsx">
+        <entry file="file://$PROJECT_DIR$/src/store/reducers/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+            <state relative-caret-position="264">
+              <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="35" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -118,36 +133,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>items</find>
-      <find>this.state</find>
-      <find>this.state.items</find>
-      <find>this.s</find>
-      <find>selecteditem</find>
-      <find>this.props</find>
-      <find>this.props.viewport</find>
-      <find>enter</find>
-      <find>this.state.viewport</find>
-      <find>this.state.v</find>
-      <find>this.state.view</find>
-      <find>zoom:</find>
-      <find>location</find>
-      <find>bounding</find>
-      <find>zoom</find>
-      <find>console.log</find>
-      <find>input</find>
-      <find>boundingbox</find>
-      <find>setv</find>
-      <find>bounds</find>
-      <find>border-bottom</find>
-      <find>race_la</find>
-      <find>filters</find>
-      <find>setBounds</find>
-      <find>this.props.setbo</find>
-      <find>setbounds</find>
-      <find>userloca</find>
-      <find>styled</find>
-      <find>age</find>
       <find>colo</find>
+      <find>ReactHighcharts</find>
+      <find>react-sc</find>
+      <find>COUNTY_LAYER</find>
+      <find>marital</find>
+      <find>fitb</find>
+      <find>setBounds</find>
+      <find>movelis</find>
+      <find>setv</find>
+      <find>this.props.setbounds</find>
+      <find>fitbounds</find>
+      <find>setviewport</find>
+      <find>router</find>
+      <find>reducer</find>
+      <find>setbounds</find>
+      <find>console.log</find>
+      <find>this.props.la</find>
+      <find>setexp</find>
+      <find>setsel</find>
+      <find>state</find>
+      <find>selected</find>
+      <find>setselected</find>
+      <find>bounds</find>
+      <find>redosearch</find>
+      <find>setredosearch</find>
+      <find>settest</find>
+      <find>redosearch:</find>
+      <find>setredo</find>
+      <find>redoSearch</find>
+      <find>layer.feat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -163,7 +178,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/SimpleMap.jsx" />
         <option value="$PROJECT_DIR$/src/California.json" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/SimpleExample.jsx" />
         <option value="$PROJECT_DIR$/src/map/pins/LocationPin.js" />
         <option value="$PROJECT_DIR$/src/map/SimpleExample.jsx" />
@@ -178,30 +192,34 @@
         <option value="$PROJECT_DIR$/src/map/pins/UserLocationPin.jsx" />
         <option value="$PROJECT_DIR$/src/map/components/LocationButton.jsx" />
         <option value="$PROJECT_DIR$/src/components/loading/Loading.jsx" />
-        <option value="$PROJECT_DIR$/src/utility/Utilities.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/map/components/panel/SidePanelContainer.jsx" />
         <option value="$PROJECT_DIR$/src/map/components/panel/ExpandPanelButton.jsx" />
-        <option value="$PROJECT_DIR$/src/Income_Layers.json" />
         <option value="$PROJECT_DIR$/src/components/Checkbox.jsx" />
         <option value="$PROJECT_DIR$/src/map/components/panel/CheckBoxList.jsx" />
         <option value="$PROJECT_DIR$/src/components/panel/Filters.jsx" />
         <option value="$PROJECT_DIR$/src/map/components/Search.jsx" />
-        <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/components/panel/CheckBoxList.jsx" />
-        <option value="$PROJECT_DIR$/src/Race_Layers.json" />
-        <option value="$PROJECT_DIR$/src/Marital_Status.json" />
-        <option value="$PROJECT_DIR$/src/store/ActionTypes.js" />
-        <option value="$PROJECT_DIR$/src/store/actions/index.js" />
-        <option value="$PROJECT_DIR$/src/store/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/panel/CircleLegend.jsx" />
         <option value="$PROJECT_DIR$/src/utility/Constants.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/components/panel/CheckBoxList.jsx" />
+        <option value="$PROJECT_DIR$/src/Income_Layers.json" />
+        <option value="$PROJECT_DIR$/src/Marital_Status.json" />
+        <option value="$PROJECT_DIR$/src/Race_Layers.json" />
+        <option value="$PROJECT_DIR$/src/Age_Layers.json" />
+        <option value="$PROJECT_DIR$/src/FiltersList.json" />
+        <option value="$PROJECT_DIR$/src/store/_mock_data/FiltersList.json" />
+        <option value="$PROJECT_DIR$/src/store/ActionTypes.js" />
+        <option value="$PROJECT_DIR$/src/utility/Utilities.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/index.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/store/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/map/polygon/EnhancedPolygon.jsx" />
-        <option value="$PROJECT_DIR$/src/map/InjusticeMap.jsx" />
         <option value="$PROJECT_DIR$/src/map/polygon/PolygonList.jsx" />
         <option value="$PROJECT_DIR$/src/map/components/BlockInformation.jsx" />
+        <option value="$PROJECT_DIR$/src/map/InjusticeMap.jsx" />
       </list>
     </option>
   </component>
@@ -240,6 +258,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,19 +270,6 @@
               <item name="untitled" type="b2602c69:ProjectViewProjectNode" />
               <item name="untitled" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="untitled" type="b2602c69:ProjectViewProjectNode" />
@@ -291,11 +297,16 @@
               <item name="store" type="462c0819:PsiDirectoryNode" />
               <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="untitled" type="b2602c69:ProjectViewProjectNode" />
+              <item name="untitled" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utility" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -307,7 +318,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion.SSH" />
   </component>
   <component name="Push.Settings">
     <force-push-targets>
@@ -320,11 +331,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/store/_mock_data" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/map/components" />
       <recent name="$PROJECT_DIR$/src/map" />
-      <recent name="$PROJECT_DIR$/src/assets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -370,11 +381,14 @@
         <item itemvalue="npm.build" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
+    <option name="sshConnectionType" value="PRIVATE_KEY" />
+    <option name="sshPrivateKeyPath" value="$USER_HOME$/.ssh/id_rsa.pub" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -400,6 +414,9 @@
       <workItem from="1554513884907" duration="295000" />
       <workItem from="1554514849268" duration="557000" />
       <workItem from="1554557588162" duration="1943000" />
+      <workItem from="1554624856368" duration="7516000" />
+      <workItem from="1554952996122" duration="33306000" />
+      <workItem from="1555183872663" duration="22400000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1553443705899</created>
@@ -422,23 +439,37 @@
       <option name="project" value="LOCAL" />
       <updated>1554591101968</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="clearing up space">
+      <created>1554606048304</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1554606048304</updated>
+    </task>
+    <task id="LOCAL-00005" summary="clearing up space">
+      <created>1554624926638</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1554624926638</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250243000" />
+    <option name="totallyTimeSpent" value="315373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="775" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46653143" visible="true" weight="0.18745595" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.45841786" visible="true" weight="0.13742071" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.53346854" side_tool="true" weight="0.18745595" />
+      <window_info id="npm" order="2" sideWeight="0.54158217" side_tool="true" weight="0.13742071" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27818447" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27818447" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -446,7 +477,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.329429" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003524" side_tool="true" weight="0.32796487" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49964765" visible="true" weight="0.32796487" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49964765" weight="0.32796487" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -508,7 +539,20 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="start" />
-    <option name="LAST_COMMIT_MESSAGE" value="start" />
+    <MESSAGE value="clearing up space" />
+    <option name="LAST_COMMIT_MESSAGE" value="clearing up space" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/map/components/BlockInformation.jsx</url>
+          <line>129</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
@@ -541,9 +585,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/nation.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nation.json" />
     <entry file="file://$PROJECT_DIR$/src/map/pins/UserLocationPin.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -566,16 +608,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/states.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utility/Utilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states.json" />
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -607,34 +640,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Income_Layers.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Age_Layers.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/map/components/SearchArea.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/panel/Filters.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Checkbox.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -645,87 +654,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/counties.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Marital_Status.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Race_Layers.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blocks.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8655">
-          <caret line="577" column="248" selection-start-line="577" selection-start-column="242" selection-end-line="577" selection-end-column="248" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/ActionTypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/map/components/LocationButton.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actions/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/counties.json" />
     <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="160" column="27" lean-forward="true" selection-start-line="160" selection-start-column="27" selection-end-line="160" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/panel/CheckBoxList.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/lodash/sample.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -736,64 +669,168 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Checkbox.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/panel/CheckBoxList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-364">
+          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Marital_Status.json" />
+    <entry file="file://$PROJECT_DIR$/src/Income_Layers.json" />
+    <entry file="file://$PROJECT_DIR$/src/Race_Layers.json" />
+    <entry file="file://$PROJECT_DIR$/src/Age_Layers.json" />
+    <entry file="file://$PROJECT_DIR$/src/store/_mock_data/FiltersList.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/map/components/SearchArea.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blocks.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="30" selection-start-line="1" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/lodash/sample.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utility/Constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="15">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/ActionTypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="62" column="2" selection-start-line="62" selection-start-column="2" selection-end-line="62" selection-end-column="2" />
+          <folding>
+            <element signature="e#532#558#0" expanded="true" />
+            <element signature="e#791#814#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utility/Utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#684#1083#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="134" selection-start-line="134" selection-end-line="142" />
+          <folding>
+            <element signature="n#!!block;n#componentDidUpdate#0;n#App#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/map/components/LocationButton.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/map/polygon/EnhancedPolygon.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="324">
+          <caret line="26" column="191" selection-start-line="26" selection-start-column="191" selection-end-line="26" selection-end-column="191" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/map/polygon/PolygonList.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="50" column="48" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
+        <state relative-caret-position="275">
+          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/map/InjusticeMap.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="241" column="53" selection-start-line="241" selection-start-column="53" selection-end-line="241" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="105" column="30" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/map/components/BlockInformation.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        <state relative-caret-position="339">
+          <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/store/reducers/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="264">
+          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/map/InjusticeMap.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="85" column="55" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#2318#2510#0" />
+            <element signature="n#!!block;n#setBaseMap#0;n#InjusticeMap#0" />
+            <element signature="n#!!block;n#setRedoSearch#0;n#InjusticeMap#0" />
+            <element signature="n#!!block;n#setViewport#0;n#InjusticeMap#0" />
+            <element signature="n#!!block;n#setBounds#0;n#InjusticeMap#0" />
+          </folding>
         </state>
       </provider>
     </entry>

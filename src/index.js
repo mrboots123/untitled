@@ -15,17 +15,22 @@
 
 import React from 'react';
 import thunk from 'redux-thunk'
-import {createStore, applyMiddleware, compose} from 'redux';
+import {createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux'
 import { render } from 'react-dom'
 // import { createLogger } from 'redux-logger'
 import App from './App'
-import reducer from './store/reducers/index'
-import {BrowserRouter} from "react-router-dom";
+import rootReducer from './store/reducers/index'
+import {BrowserRouter, Route, Router} from "react-router-dom";
+import { browserHistory } from 'react-router'
 import {BLOCK_LAYER, COUNTY_LAYER, NATION_LAYER, STATE_LAYER} from "./store/ActionTypes";
-import {fetchDataLayer, fetchDefaultLayer} from "./store/actions";
+import {fetchDataLayer, fetchDefaultLayer, fetchFilters} from "./store/actions";
 import './index.css'
  import 'bootstrap/dist/css/bootstrap.css'
+import {syncHistoryWithStore, routerReducer, routerMiddleware} from 'react-router-redux'
+import { createBrowserHistory } from 'history'
+
+import { push } from 'connected-react-router'
 
 const middleware = [ thunk ];
 const composeEnhancer =
@@ -39,19 +44,29 @@ if (process.env.NODE_ENV !== 'production') {
     // middleware.push(createLogger())
 }
 
+
+const history = createBrowserHistory()
+
 const store = createStore(
-    reducer,
-    composeEnhancer(applyMiddleware(thunk)),
+    rootReducer(history),
+    composeEnhancer(
+        applyMiddleware(
+            routerMiddleware(history),
+            thunk
+        )
+    ),
+)
 
-);
 
-store.dispatch(fetchDefaultLayer());
 
+
+//store.dispatch(fetchDefaultLayer());
+store.dispatch(fetchFilters())
 render(
 
     <BrowserRouter>
         <Provider store={store}>
-            <App />
+            <App history={history}/>
         </Provider>
     </BrowserRouter>,
     document.getElementById('root')
