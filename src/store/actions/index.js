@@ -29,20 +29,38 @@ export const fetchDefaultLayer = () => (dispatch) => {
         })
 }
 
-export const fetchTilesLayer = (bounds) => (dispatch) => {
+export const fetchTilesLayer = (bounds, filters) => (dispatch) => {
+    // console.log('DA BOUNDS')
+    // console.log([bounds.getSouthWest().lat, bounds.getSouthWest().lng])
+    // console.log('north')
+    // console.log([bounds.getNorthEast().lat,bounds.getNorthEast().lng])
+
     dispatch({
         type: FETCH_TILES_LOADING
     });
-    return fetch(`http:replaceme`)
+
+    fetch("http://localhost:8080/graphql",
+        {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({
+                "query": "query t($southWest:[Float], $northEast: [Float]){tiles(southWest: $southWest, northEast: $northEast){geometry}}",
+                "variables": {"southWest": [bounds.getSouthWest().lat, bounds.getSouthWest().lng],"northEast": [bounds.getNorthEast().lat,bounds.getNorthEast().lng]}
+            })
+        })
         .then(response => response.json())
         .then(json => dispatch({
             type: FETCH_TILES_SUCCESS,
-            tiles: json
+            tiles: json.data.tiles
         }))
         .catch(() => dispatch({
             type: FETCH_TILES_FAILURE,
             tiles: moveMeToServer(bounds)
         }));
+
 }
 
 export const fetchDataLayer = (layer) => (dispatch) => {

@@ -3,7 +3,7 @@ import EnhancedPolygon from "./EnhancedPolygon";
 import * as turf from "@turf/turf";
 import chunk from 'lodash/chunk'
 import sample from 'lodash/sample'
-import {DEFAULT_COLOR} from "../../utility/Constants";
+import {DEFAULT_COLOR , LAYER_COLORS} from "../../utility/Constants";
 
 class PolygonList extends Component {
     constructor(props) {
@@ -31,12 +31,13 @@ class PolygonList extends Component {
                     this.props.paths && !this.props.isEnabled &&
                     this.props.paths.map((path, index) => {
 
+
                             return <EnhancedPolygon
                                 size={this.props.paths.length}
                                 key={index}
                                 layer={this.props.layer}
                                 positions={path.geometry.coordinates}
-                                color={ '#d73027'}
+                                color={ sample(LAYER_COLORS)}
                                 fillOpacity={0}
                                 center={turf.centroid(path).geometry.coordinates}
                                 onClick={() => this.setSelected(path,index)}

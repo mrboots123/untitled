@@ -16,6 +16,7 @@ export const createPolygonFromBounds = (latLngBounds) => {
 
 
 
+
 export const moveMeToServer = (bounds) => {
     const bbox = turf.polygon([createPolygonFromBounds(bounds)]);
     let featureCollection = {

@@ -16,7 +16,11 @@
     right: 10px;
     bottom: 25px;
 }
-
+.map-legend{
+    top: 10%;
+    right: 10px;
+    width: 150px;
+}
 .map-redoSearch{
     top: 10%;
     left: 50%;

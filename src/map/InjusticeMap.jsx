@@ -1,5 +1,5 @@
 import React from 'react'
-import {Map, TileLayer} from 'react-leaflet'
+import {Map, Polygon, TileLayer, Marker, Popup} from 'react-leaflet'
 import * as turf from '@turf/turf'
 import {geolocated} from "react-geolocated";
 import UserLocationPin from "./pins/UserLocationPin";
@@ -13,24 +13,19 @@ import {COUNTY_LAYER, NATION_LAYER, STATE_LAYER} from "../store/ActionTypes";
 import {createPolygonFromBounds, isNestedPolygon} from '../utility/Utilities'
 import flatten from 'lodash/flatten'
 import blocks from '../Blocks'
+import Loading from "../components/loading/Loading";
+
+import test from '../test'
+import {setColor} from "../utility/Constants";
+import Polygons from "./polygon/Polygons";
+import Legend from "./components/Legend";
 
 
-const customStyles = {
-    content : {
-        top                   : '50%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)'
-    }
-};
 //TODO: null check the tiles
 class InjusticeMap extends React.Component {
     constructor() {
         super();
         this.state = {
-            //TODO: Migrate most of the state into redux
             isBaseMap: false,
             redoSearch: false,
             userLocation: {},
@@ -57,7 +52,7 @@ class InjusticeMap extends React.Component {
     testFitBounds (bounds) {
 
         this.leaflet.current.leafletElement.fitBounds(bounds);
-        this.props.setBounds(bounds);
+       // this.props.setBounds(bounds);
     }
 
 
@@ -67,6 +62,7 @@ class InjusticeMap extends React.Component {
         if(this.leaflet){
                 const latLngBounds = this.leaflet.current.leafletElement.getBounds();
 
+                //console.log(this.leaflet.current.leafletElement.getBounds())
 
                 const testBound = [
                     [latLngBounds.getNorthWest().lat,latLngBounds.getNorthWest().lng],
@@ -102,7 +98,7 @@ class InjusticeMap extends React.Component {
 
 
             if((prevProps.bounds[0].length <= 0)){
-                this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds())
+              // this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds(), this.props.filters)
             }
         }
 
@@ -122,40 +118,15 @@ class InjusticeMap extends React.Component {
     }
 
     setBaseMap(){
-        this.setState({ isBaseMap: !this.state.isBaseMap })
+        this.setState({ isBaseMap: !this.state.isBaseMap }, () => this.props.setSelected(-1))
     }
 
     setRedoSearch(){
         this.setState({redoSearch: !this.state.redoSearch}, () => {
-            // const bbox = turf.polygon([createPolygonFromBounds(this.leaflet.current.leafletElement.getBounds())]);
+
 
             this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds())
 
-            // console.log(bbox)
-            //
-            //         let list = []
-            //         turf.flip(blocks).features.map(feature => {
-            //             if(feature.geometry.type === 'Polygon'){
-            //                 if(!turf.booleanDisjoint(feature, bbox)){
-            //                     list.push(feature.properties.AFFGEOID)
-            //                 }
-            //             }
-            //             //TODO: THIS IS FOR MULTI POLYGONS
-            //             // else{
-            //             //     feature.geometry.coordinates.map(ele => {
-            //             //         const poly = turf.polygon(ele)
-            //             //        // console.log(turf.booleanWithin(poly, bboxPoly))
-            //             //         if(turf.booleanWithin(poly, bbox)){
-            //             //             list.push(poly.properties.AFFGEOID)
-            //             //         }
-            //             //     })
-            //             // }
-            //
-            //
-            //         })
-
-            this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds())
-           // this.props.setTest(list)
         })
     }
 
@@ -182,10 +153,24 @@ class InjusticeMap extends React.Component {
                  onMoveend={ ()=> this.moveListener() }
 
             >
+
+
+                <Loading isLoading={this.props.isLoadingTiles}/>
+
+
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
                 />
+
+
+                {
+                   !isEmpty(this.props.layer) &&
+                   !this.state.isBaseMap &&
+                   <Legend/>
+                }
+
+
 
                 <UserLocationPin
                     location={this.state.userLocation}
@@ -208,24 +193,16 @@ class InjusticeMap extends React.Component {
                     setLocation={this.props.setViewport}
                 />
 
-
-
                 {
-                    this.props.layer &&
-                    this.props.layer.features &&
-                    <PolygonList
-                        isEnabled={this.state.isBaseMap}
-                        paths={this.props.layer.features }
-                        layer={this.props.layer.layer_type}
-                        setBounds={this.props.setBounds}
-                        fetchLayers={this.props.fetchLayers}
-                        setSelected={this.props.setSelected}
+                    !this.state.isBaseMap &&
+                    <Polygons
+                        geometries={this.props.layer}
                         fitBounds={this.testFitBounds}
                         selected={this.props.selected}
-                        test={this.props.test}
+                        setSelected={this.props.setSelected}
                     />
-
                 }
+
 
 
 

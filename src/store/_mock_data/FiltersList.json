@@ -1,0 +1,150 @@
+[
+  {
+    "filter_name": "Sex",
+    "list": [
+      {
+        "id": "S1",
+        "label": "Male"
+      },
+      {
+        "id": "S2",
+        "label": "Female"
+      }
+    ]
+  },
+  {
+    "filter_name": "Marital Status",
+    "list": [
+      {
+        "id": "M1",
+        "label": "Single"
+      },
+      {
+        "id": "M2",
+        "label": "Married"
+      },
+      {
+        "id": "M3",
+        "label": "Widowed"
+      },
+      {
+        "id": "M4",
+        "label": "Divorced"
+      }
+    ]
+  },
+  {
+    "filter_name": "Income",
+    "list": [
+
+      {
+        "id": "I1",
+        "label": "Under 28k"
+      },
+      {
+        "id": "I2",
+        "label": "28k - 35k"
+      },
+      {
+        "id": "I3",
+        "label": "35k - 40k"
+      },
+      {
+        "id": "I4",
+        "label": "40k - 45k"
+      },
+      {
+        "id": "I5",
+        "label": "45k - 51k"
+      },
+      {
+        "id": "I6",
+        "label": "51k - 56k"
+      }
+    ,
+      {
+        "id": "I7",
+        "label": "56k - 64k"
+      },
+      {
+        "id": "I8",
+        "label": "64k - 75k"
+      }
+    ,
+      {
+        "id": "I9",
+        "label": "75k - 93k"
+      }
+    ,
+      {
+        "id": "I10",
+        "label": "Over 93k"
+      }
+    ]
+  },
+  {
+    "filter_name": "Race",
+    "list":    [
+      {
+        "id": "R1",
+        "label": "American Indian"
+      },
+      {
+        "id": "R2",
+        "label": "Asian"
+      },
+      {
+        "id": "R3",
+        "label": "Black"
+      },
+      {
+        "id": "R4",
+        "label": "Hispanic"
+      },
+      {
+        "id": "R5",
+        "label": "Multi-Racial"
+      },
+      {
+        "id": "R6",
+        "label": "Non-White"
+      },
+      {
+        "id": "R7",
+        "label": "White"
+      }
+    ]
+  },
+  {
+    "filter_name": "Age",
+    "list": [
+      {
+        "id": "A1",
+        "label": "Under 18 "
+      },
+      {
+        "id": "A2",
+        "label": "18 - 21 "
+      },
+      {
+        "id": "A3",
+        "label": "21 - 30 "
+      },  {
+        "id": "A4",
+        "label": "31 - 40 "
+      },
+      {
+        "id": "A5",
+        "label": "40 - 50 "
+      },
+      {
+        "id": "A6",
+        "label": "50 - 65"
+      },
+      {
+        "id": "A7",
+        "label": "Over 65"
+      }
+    ]
+  }
+]

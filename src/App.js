@@ -136,7 +136,7 @@ class App extends Component {
                     this.props.selected !== -1 &&
                     <BlockInformation
                         setSelected={this.props.setSelected}
-                        layer={this.props.tiles.features[this.props.selected]}
+                        tile={this.props.tiles[this.props.selected]}
                     />
                 }
 
@@ -157,7 +157,8 @@ class App extends Component {
                         setTest={this.props.fetchLayers}
                         test={this.props.test}
                         fetchTiles={this.props.fetchTiles}
-
+                        isLoadingTiles={this.props.isFetchingTiles}
+                        filter={this.props.filters}
 
                     />
                 </div>
@@ -180,7 +181,8 @@ function mapStateToProps(state, props){
         path: state.router.location,
         filtersList: state.filtersReducer.filtersList,
         test: state.dataLayerReducer.test,
-        tiles: state.dataLayerReducer.tiles
+        tiles: state.dataLayerReducer.tiles,
+        isFetchingTiles: state.dataLayerReducer.tile_loading
     };
 }
 
@@ -188,7 +190,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         fetchLayers: (layer) => dispatch(fetchDataLayer(layer)),
         fetchPlaces: (query) => dispatch(fetchLocations(query)),
-        fetchTiles: (bounds) => dispatch(fetchTilesLayer(bounds)),
+        fetchTiles: (bounds, filters) => dispatch(fetchTilesLayer(bounds,filters)),
         setViewport: (viewport) => dispatch(setViewPort(viewport)),
         setBounds: (bounds) => dispatch(setBounds(bounds)),
         setFilters: (filters) => dispatch(setFilters(filters)),
