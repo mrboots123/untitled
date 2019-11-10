@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import InjusticeMap from './map/InjusticeMap'
 import {connect} from "react-redux";
 import {
-    fetchDataLayer,
+    fetchCrimeData,
     fetchLocations,
     fetchTilesLayer,
     setBounds,
@@ -55,7 +55,6 @@ class App extends Component {
 
     setQueryParams() {
 
-
         //TODO: the clear button should remove the filter query from the url
 
         let query = {}
@@ -90,8 +89,9 @@ class App extends Component {
         <div className="container-fluid p-0 vh-100 ">
             <div className="row no-gutters p-0 h-100 ">
 
-
-                <ExpandPanel expanded={this.state.expanded} onExpandClick={() => {this.setState({expanded: !this.state.expanded})}}/>
+                {
+                    /*
+                                    <ExpandPanel expanded={this.state.expanded} onExpandClick={() => {this.setState({expanded: !this.state.expanded})}}/>
 
                 <div className={`${this.state.expanded ? 'col-sm-3': 'd-none'} h-100 border-right  `}>
 
@@ -139,11 +139,19 @@ class App extends Component {
                         tile={this.props.tiles[this.props.selected]}
                     />
                 }
+                     */
+                }
 
 
 
 
-                <div className={`${this.props.selected !== -1 && this.state.expanded ? 'col-sm-6' : (this.props.selected > 0 && !this.state.expanded) || (this.props.selected === -1 && this.state.expanded) ? 'col-sm-9' : 'col-sm-12'}`}>
+
+{
+    /*
+    className={`${this.props.selected !== -1 && this.state.expanded ? 'col-sm-6' : (this.props.selected > 0 && !this.state.expanded) || (this.props.selected === -1 && this.state.expanded) ? 'col-sm-9' : 'col-sm-12'}`}
+     */
+}
+                <div className="col-sm-12">
                     <InjusticeMap
                         viewport={this.props.viewport}
                         bounds={this.props.bounds}
@@ -159,6 +167,8 @@ class App extends Component {
                         fetchTiles={this.props.fetchTiles}
                         isLoadingTiles={this.props.isFetchingTiles}
                         filter={this.props.filters}
+                        fetchCrimeData={this.props.fetchCrimeData}
+                        crimes={this.props.crimes}
 
                     />
                 </div>
@@ -182,19 +192,20 @@ function mapStateToProps(state, props){
         filtersList: state.filtersReducer.filtersList,
         test: state.dataLayerReducer.test,
         tiles: state.dataLayerReducer.tiles,
-        isFetchingTiles: state.dataLayerReducer.tile_loading
+        isFetchingTiles: state.dataLayerReducer.tile_loading,
+        crimes: state.crimesReducer.crimes
     };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        fetchLayers: (layer) => dispatch(fetchDataLayer(layer)),
         fetchPlaces: (query) => dispatch(fetchLocations(query)),
-        fetchTiles: (bounds, filters) => dispatch(fetchTilesLayer(bounds,filters)),
+        fetchTiles: (bounds, filters, layer) => dispatch(fetchTilesLayer(bounds,filters,layer)),
         setViewport: (viewport) => dispatch(setViewPort(viewport)),
         setBounds: (bounds) => dispatch(setBounds(bounds)),
         setFilters: (filters) => dispatch(setFilters(filters)),
-        setSelected: (selected) => dispatch(setSelected(selected))
+        setSelected: (selected) => dispatch(setSelected(selected)),
+        fetchCrimeData: (center, radius) => dispatch(fetchCrimeData(center,radius))
     }
 }
 

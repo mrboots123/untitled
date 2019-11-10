@@ -3,6 +3,8 @@ import { connectRouter } from 'connected-react-router'
 import mockFilters from '../_mock_data/FiltersList'
 import { fromJS } from "immutable";
 import {
+    FETCH_CRIMES_FAILURE,
+    FETCH_CRIMES_SUCCESS,
     FETCH_DATA_LAYERS,
     FETCH_DATA_LAYERS_TEST,
     FETCH_FILTERS_FAILURE,
@@ -48,6 +50,19 @@ const setReducer = (state= initialState, action) => {
           return state;
   }
 };
+
+const crimesReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case FETCH_FILTERS_LOADING:
+            return { ...state, crimes_loading: true}
+        case FETCH_CRIMES_SUCCESS:
+            return { ...state, crimes_loading: false, crimes: action.crimes }
+        case FETCH_CRIMES_FAILURE:
+            return { ...state, crimes_loading: false}
+        default:
+            return state;
+    }
+}
 
 const dataLayerReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -119,6 +134,7 @@ const rootReducer = (history) => combineReducers({
     dataLayerReducer,
     placesReducer,
     filtersReducer,
+    crimesReducer,
     router: connectRouter(history)
 });
 

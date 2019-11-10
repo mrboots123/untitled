@@ -24,7 +24,7 @@ import rootReducer from './store/reducers/index'
 import {BrowserRouter, Route, Router} from "react-router-dom";
 import { browserHistory } from 'react-router'
 import {BLOCK_LAYER, COUNTY_LAYER, FETCH_TILES_SUCCESS, NATION_LAYER, STATE_LAYER} from "./store/ActionTypes";
-import {fetchDataLayer, fetchDefaultLayer, fetchFilters} from "./store/actions";
+import { fetchFilters} from "./store/actions";
 import './index.css'
  import 'bootstrap/dist/css/bootstrap.css'
 import {syncHistoryWithStore, routerReducer, routerMiddleware} from 'react-router-redux'
@@ -59,7 +59,6 @@ const store = createStore(
 
 
 
-//store.dispatch(fetchDefaultLayer());
 store.dispatch(fetchFilters())
 render(
 

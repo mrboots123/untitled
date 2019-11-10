@@ -1,5 +1,6 @@
 import React from 'react'
 import {Map, Polygon, TileLayer, Marker, Popup} from 'react-leaflet'
+import MarkerIcon from '../map/pins/Marker'
 import * as turf from '@turf/turf'
 import {geolocated} from "react-geolocated";
 import UserLocationPin from "./pins/UserLocationPin";
@@ -14,12 +15,11 @@ import {createPolygonFromBounds, isNestedPolygon} from '../utility/Utilities'
 import flatten from 'lodash/flatten'
 import blocks from '../Blocks'
 import Loading from "../components/loading/Loading";
-
 import test from '../test'
-import {setColor} from "../utility/Constants";
+import {BLOCK, CITY, COUNTY, setColor, STATE} from "../utility/Constants";
 import Polygons from "./polygon/Polygons";
 import Legend from "./components/Legend";
-
+import { FaMask } from 'react-icons/fa'
 
 //TODO: null check the tiles
 class InjusticeMap extends React.Component {
@@ -33,14 +33,16 @@ class InjusticeMap extends React.Component {
                 center: [40.7128, -74.0060],
                 zoom: 3
             },
-            bounds: {}
+            bounds: {},
+            loadedInitialTiles: false
         }
         this.setBaseMap = this.setBaseMap.bind(this);
         this.setRedoSearch = this.setRedoSearch.bind(this);
         this.setViewport = this.setViewport.bind(this);
         this.setBounds = this.setBounds.bind(this);
         this.leaflet = React.createRef();
-        this.testFitBounds = this.testFitBounds.bind(this)
+        this.testFitBounds = this.testFitBounds.bind(this);
+        this.loadTiles = this.loadTiles.bind(this);
     }
 
     componentDidMount(){
@@ -60,7 +62,8 @@ class InjusticeMap extends React.Component {
 
         this.props.setQueryParams()
         if(this.leaflet){
-                const latLngBounds = this.leaflet.current.leafletElement.getBounds();
+                let latLngBounds = this.leaflet.current.leafletElement.getBounds();
+
 
                 //console.log(this.leaflet.current.leafletElement.getBounds())
 
@@ -69,7 +72,22 @@ class InjusticeMap extends React.Component {
                     [latLngBounds.getSouthEast().lat,latLngBounds.getSouthEast().lng]
                 ]
 
-                let  [[nwLat,nwLng],[seLat,seLng]]  = this.props.bounds
+                // TODO: here we will save the radius of the current bbox, calculated as Math.sqrt((l*w)/pi)
+
+                let  [[nwLat,nwLng],[seLat,seLng]]  = this.props.bounds;
+
+
+                let radius = turf.distance([latLngBounds._northEast.lat,latLngBounds._northEast.lng],this.props.viewport.center);
+                this.setState({bboxRadius: radius})
+              //  console.log([latLngBounds._northEast.lat,latLngBounds._northEast.lng])
+              // console.log(this.state.userLocation.center)
+              // console.log(turf.distance([latLngBounds._northEast.lat,latLngBounds._northEast.lng],this.state.userLocation.center,{units: 'miles'}))
+                // var mapBoundNorthEast = map.getBounds().getNorthEast();
+                // var mapDistance = mapBoundNorthEast.distanceTo(map.getCenter());
+                // return mapDistance/1000;
+
+
+
                 if(!((nwLat === testBound[0][0] && nwLng === testBound[0][1]) && (seLat === testBound[1][0] && seLng === testBound[1][1]))){
                     //TODO: CLICKING A TILE AND RECENTERS IT SHOULD NOT CAUSE IT TO SET SEARCH TO TRUE
                     //TODO: WE NEED TO PREVENT THIS METHOD FROM EXECUTING
@@ -88,7 +106,6 @@ class InjusticeMap extends React.Component {
 
     componentDidUpdate(prevProps, prevState){
 
-
         if(prevProps.selected !== this.props.selected){
 
             this.setState({ oldSelected: prevProps.selected })
@@ -97,24 +114,52 @@ class InjusticeMap extends React.Component {
         if(this.leaflet) {
 
 
+            //FETCH THE INTIAL Tiles, todo, make it only load once, currently if it fails the call itll retry infintely
             if((prevProps.bounds[0].length <= 0)){
               // this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds(), this.props.filters)
             }
         }
 
-        if(this.props.coords && prevProps.coords !== this.props.coords){
+        //TODO: RUN ONCE for the user location
+        if(this.props.coords && prevProps.coords !== this.props.coords && !this.state.loadedInitialTiles){
             const { latitude: lat, longitude: lng } = this.props.coords
             const location = {
                 center: [lat, lng],
                 zoom: 14
             }
             this.setState({
-                userLocation: location
+                userLocation: location,
+                loadedInitialTiles: true
             }, () => {
                 this.props.setViewport(location);
             })
         }
 
+    }
+
+    loadTiles(){
+        if(!isEmpty(this.props.viewport)){
+            const { zoom } = this.props.viewport;
+            const bounds = this.leaflet.current.leafletElement.getBounds();
+            const filters = this.props.filter;
+            if(zoom <= 6){
+                console.log('loading state');
+                this.props.fetchTiles(bounds,filters,STATE)
+
+            } else if( zoom > 6 && zoom <= 7){
+                console.log('loading counties');
+                this.props.fetchTiles(bounds,filters,COUNTY)
+
+            } else if( zoom >= 8 && zoom <= 10){
+                console.log('loading cities');
+                this.props.fetchTiles(bounds,filters,CITY)
+
+            } else {
+                console.log('the blocks');
+                this.props.fetchTiles(bounds,filters,BLOCK)
+
+            }
+        }
     }
 
     setBaseMap(){
@@ -123,10 +168,9 @@ class InjusticeMap extends React.Component {
 
     setRedoSearch(){
         this.setState({redoSearch: !this.state.redoSearch}, () => {
-
-
-            this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds())
-
+           // this.loadTiles();
+            // todo: here we should send the radius
+            this.props.fetchCrimeData(this.props.viewport.center, this.state.bboxRadius)
         })
     }
 
@@ -143,6 +187,7 @@ class InjusticeMap extends React.Component {
     render() {
 
 
+        console.log('we are refreshing like crazy')
         return (
             this.props.isGeolocationAvailable && this.props.viewport &&
             <Map
@@ -151,6 +196,7 @@ class InjusticeMap extends React.Component {
                  style={{'height' : '100vh', 'width': '100%'}}
                  ref={this.leaflet}
                  onMoveend={ ()=> this.moveListener() }
+                 onZoomend={(zoom) => console.log(zoom.target._zoom)}
 
             >
 
@@ -200,10 +246,20 @@ class InjusticeMap extends React.Component {
                         fitBounds={this.testFitBounds}
                         selected={this.props.selected}
                         setSelected={this.props.setSelected}
+                        filters={this.props.filter}
                     />
                 }
 
 
+
+                {
+                    this.props.crimes &&
+                        this.props.crimes.map(crime =>
+                          <MarkerIcon key={crime.cdid} crime={crime} fit={this.testFitBounds}>
+
+                          </MarkerIcon>
+                        )
+                }
 
 
             </Map>

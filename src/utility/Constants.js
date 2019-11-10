@@ -1,3 +1,10 @@
+
+export const BLOCK = 'BLOCK';
+export const CITY = 'CITY';
+export const COUNTY = 'COUNTY';
+export const STATE = 'STATE';
+
+
 export const LAYER_COLORS = [
     '#d73027',
     '#fc8d59',
@@ -8,6 +15,7 @@ export const LAYER_COLORS = [
 ]
 
 export const setColor = (salary) => {
+
 
     let color = '#fff'
 

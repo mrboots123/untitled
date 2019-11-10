@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Downshift from "downshift";
 import {Manager, Popper, Reference} from "react-popper";
 import indexOf from "lodash/indexOf";
-
+import isEmpty from 'lodash/isEmpty'
 class Search extends Component {
     constructor(props){
         super(props)
@@ -118,6 +118,7 @@ class Search extends Component {
                                 <Popper placement="bottom">
                                     {({ ref, style, placement, arrowProps }) => (
 
+                                        !isEmpty(this.props.places) &&
                                         <div ref={ref} style={style} data-placement={placement} className="map-z-index fix p-inherit ">
                                             <div className="border">
                                                 {
@@ -147,9 +148,6 @@ class Search extends Component {
                                                 }
 
                                             </div>
-
-
-
                                             <div ref={arrowProps.ref} style={arrowProps.style} />
 
                                         </div>

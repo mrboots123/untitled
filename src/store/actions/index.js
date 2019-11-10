@@ -1,43 +1,28 @@
 import {
-    BLOCK_LAYER,
-    COUNTY_LAYER,
-    FETCH_DATA_LAYERS, FETCH_DATA_LAYERS_TEST,
+    FETCH_CRIMES_FAILURE,
+    FETCH_CRIMES_LOADING, FETCH_CRIMES_SUCCESS,
     FETCH_FILTERS_FAILURE,
     FETCH_FILTERS_LOADING,
     FETCH_FILTERS_SUCCESS,
     FETCH_LOCATION_SEARCH_FAILURE,
     FETCH_LOCATION_SEARCH_LOADING,
     FETCH_LOCATION_SEARCH_SUCCESS, FETCH_TILES_FAILURE, FETCH_TILES_LOADING, FETCH_TILES_SUCCESS,
-    NATION_LAYER,
     SET_BOUNDS,
     SET_FILTERS,
     SET_SELECTED,
     SET_VIEWPORT,
-    STATE_LAYER
 } from "../ActionTypes";
-import nations from '../../Blocks'
-import * as turf from "@turf/turf";
+
 import {moveMeToServer} from "../../utility/Utilities";
+import fetch from '../../utility/Fetch';
 
-export const fetchDefaultLayer = () => (dispatch) => {
-        dispatch({
-            type: FETCH_DATA_LAYERS,
-            data: {
-                layer_type: BLOCK_LAYER,
-                positions: turf.flip(nations)
-            }
-        })
-}
 
-export const fetchTilesLayer = (bounds, filters) => (dispatch) => {
-    // console.log('DA BOUNDS')
-    // console.log([bounds.getSouthWest().lat, bounds.getSouthWest().lng])
-    // console.log('north')
-    // console.log([bounds.getNorthEast().lat,bounds.getNorthEast().lng])
+export const fetchTilesLayer = (bounds, filters, layer) => (dispatch) => {
 
     dispatch({
         type: FETCH_TILES_LOADING
     });
+
 
     fetch("http://localhost:8080/graphql",
         {
@@ -58,48 +43,9 @@ export const fetchTilesLayer = (bounds, filters) => (dispatch) => {
         }))
         .catch(() => dispatch({
             type: FETCH_TILES_FAILURE,
-            tiles: moveMeToServer(bounds)
+            tiles: {}
         }));
 
-}
-
-export const fetchDataLayer = (layer) => (dispatch) => {
-        dispatch({
-            type: FETCH_DATA_LAYERS_TEST,
-
-                test: layer
-
-        })
-    // if(layer === NATION_LAYER){
-    //     dispatch({
-    //         type: FETCH_DATA_LAYERS,
-    //         data: {
-    //             layer_type: STATE_LAYER,
-    //             positions: turf.flip(states)
-    //         }
-    //     })
-    // }
-    // else if(layer === STATE_LAYER){
-    //     dispatch({
-    //         type: FETCH_DATA_LAYERS,
-    //         data: {
-    //             layer_type: COUNTY_LAYER,
-    //             positions: turf.flip(counties)
-    //         }
-    //     })
-    // }
-    // else if(layer === COUNTY_LAYER){
-    //     dispatch({
-    //         type: FETCH_DATA_LAYERS,
-    //         data: {
-    //             layer_type: BLOCK_LAYER,
-    //             positions: turf.flip(blocks)
-    //         }
-    //     })
-    // }
-    // else if(layer === BLOCK_LAYER){
-    //
-    // }
 }
 
 export const fetchLocations = (query) => (dispatch) => {
@@ -131,6 +77,43 @@ export const fetchFilters = () => (dispatch) => {
             type: FETCH_FILTERS_FAILURE
         }));
 }
+
+
+export const fetchCrimeData = (center, radius) => (dispatch) => {
+    dispatch({
+        type: FETCH_CRIMES_LOADING
+    });
+    fetch("http://localhost:8080/graphql",
+        {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({
+                "query": "query t( $center: [Float], $radius: Float){\n" +
+                    "\n" +
+                    "  crimes(center: $center, radius: $radius){\n" +
+                    "    cdid,\n" +
+                    "    date,address,lat,lon, type\n" +
+                    "  }\n" +
+                    "  \n" +
+                    "}",
+                "variables": {"center": center, "radius": radius/100 }
+            })
+        })
+        .then(response => response.json())
+        .then(json => dispatch({
+            type: FETCH_CRIMES_SUCCESS,
+            crimes: json.data.crimes
+        }))
+        .catch(() => dispatch({
+            type: FETCH_CRIMES_FAILURE,
+            tiles: {}
+        }));
+
+}
+
 
 export const setViewPort = (viewport) => (dispatch) => {
     dispatch({

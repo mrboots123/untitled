@@ -169,5 +169,7 @@ input[type=search]{
     margin: inherit;
 }
 
-
+.icon:hover{
+    fill: red;
+}
 
