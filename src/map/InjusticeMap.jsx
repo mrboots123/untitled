@@ -116,7 +116,7 @@ class InjusticeMap extends React.Component {
 
             //FETCH THE INTIAL Tiles, todo, make it only load once, currently if it fails the call itll retry infintely
             if((prevProps.bounds[0].length <= 0)){
-              // this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds(), this.props.filters)
+               this.props.fetchTiles(this.leaflet.current.leafletElement.getBounds(), this.props.filters)
             }
         }
 

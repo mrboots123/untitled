@@ -19,7 +19,7 @@ import {createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux'
 import { render } from 'react-dom'
 // import { createLogger } from 'redux-logger'
-import App from './App'
+import App from './v2/App'
 import rootReducer from './store/reducers/index'
 import {BrowserRouter, Route, Router} from "react-router-dom";
 import { browserHistory } from 'react-router'

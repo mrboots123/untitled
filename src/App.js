@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import InjusticeMap from './map/InjusticeMap'
 import {connect} from "react-redux";
 import {
     fetchCrimeData,
@@ -10,18 +9,17 @@ import {
     setSelected,
     setViewPort
 } from "./store/actions";
-import LocationSearchInput from './map/components/Search'
-import ExpandPanel from './components/panel/ExpandPanelButton'
+
 
 import  'animate.css/animate.css'
 
-import CheckBoxList from "./components/panel/CheckBoxList";
 
 
 import  queryString  from 'query-string'
-import BlockInformation from "./map/components/BlockInformation";
 import {withRouter} from "react-router-dom";
 import { push } from 'connected-react-router'
+import SidePanelContainer from "./components/panel/SidePanelContainer";
+import CheckBoxList from "./components/panel/CheckBoxList";
 
 class App extends Component {
     constructor(props){
@@ -88,7 +86,12 @@ class App extends Component {
     return (
         <div className="container-fluid p-0 vh-100 ">
             <div className="row no-gutters p-0 h-100 ">
-
+                {/*{*/}
+                {/*    this.props.filtersList &&*/}
+                {/*    this.props.filtersList.map(filter =>*/}
+                {/*        <CheckBoxList key={filter.filter_name} filters={this.props.filters} setFilters={this.props.setFilters} items={filter.list} header={filter.filter_name}/>*/}
+                {/*    )*/}
+                {/*}*/}
                 {
                     /*
                                     <ExpandPanel expanded={this.state.expanded} onExpandClick={() => {this.setState({expanded: !this.state.expanded})}}/>
@@ -151,28 +154,29 @@ class App extends Component {
     className={`${this.props.selected !== -1 && this.state.expanded ? 'col-sm-6' : (this.props.selected > 0 && !this.state.expanded) || (this.props.selected === -1 && this.state.expanded) ? 'col-sm-9' : 'col-sm-12'}`}
      */
 }
-                <div className="col-sm-12">
-                    <InjusticeMap
-                        viewport={this.props.viewport}
-                        bounds={this.props.bounds}
-                        setViewport={this.props.setViewport}
-                        layer={this.props.tiles}
-                        fetchLayers={this.props.fetchLayers}
-                        setBounds={this.props.setBounds}
-                        setQueryParams={this.setQueryParams}
-                        setSelected={this.props.setSelected}
-                        selected={this.props.selected}
-                        setTest={this.props.fetchLayers}
-                        test={this.props.test}
-                        fetchTiles={this.props.fetchTiles}
-                        isLoadingTiles={this.props.isFetchingTiles}
-                        filter={this.props.filters}
-                        fetchCrimeData={this.props.fetchCrimeData}
-                        crimes={this.props.crimes}
+                {/*<div className="col-sm-12">*/}
+                {/*    <InjusticeMap*/}
+                {/*        viewport={this.props.viewport}*/}
+                {/*        bounds={this.props.bounds}*/}
+                {/*        setViewport={this.props.setViewport}*/}
+                {/*        layer={this.props.tiles}*/}
+                {/*        fetchLayers={this.props.fetchLayers}*/}
+                {/*        setBounds={this.props.setBounds}*/}
+                {/*        setQueryParams={this.setQueryParams}*/}
+                {/*        setSelected={this.props.setSelected}*/}
+                {/*        selected={this.props.selected}*/}
+                {/*        setTest={this.props.fetchLayers}*/}
+                {/*        test={this.props.test}*/}
+                {/*        fetchTiles={this.props.fetchTiles}*/}
+                {/*        isLoadingTiles={this.props.isFetchingTiles}*/}
+                {/*        filter={this.props.filters}*/}
+                {/*        fetchCrimeData={this.props.fetchCrimeData}*/}
+                {/*        crimes={this.props.crimes}*/}
 
-                    />
-                </div>
+                {/*    />*/}
+                {/*</div>*/}
 
+                <SidePanelContainer/>
             </div>
 
         </div>
