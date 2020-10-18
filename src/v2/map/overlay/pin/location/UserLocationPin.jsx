@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react'
-import {Marker, Popup} from "react-leaflet";
-import { locationPin } from "./LocationPin";
+import {Marker} from "react-leaflet";
+import locationPin from "./LocationPin";
 
 const UserLocationPin = ({location, setViewport}) => (
-
     <Fragment>
         {
             location && location.center  ?
@@ -11,14 +10,9 @@ const UserLocationPin = ({location, setViewport}) => (
                 position={location.center}
                 icon={locationPin}
                 onClick={() => setViewport(location) }
-
-            >
-
-            </Marker>: <Fragment/>
+            />: <Fragment/>
         }
-
     </Fragment>
-
 )
 
 export default UserLocationPin;

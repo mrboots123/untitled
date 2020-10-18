@@ -1,24 +1,24 @@
 import React from 'react'
 import {Map, Polygon, TileLayer, Marker, Popup} from 'react-leaflet'
-import MarkerIcon from '../map/pins/Marker'
+import MarkerIcon from '../v2/map/overlay/pin/marker/Marker'
 import * as turf from '@turf/turf'
 import {geolocated} from "react-geolocated";
-import UserLocationPin from "./pins/UserLocationPin";
+import UserLocationPin from "../v2/map/overlay/pin/location/UserLocationPin";
 import PolygonList from "./polygon/PolygonList";
-import BaseMapToggle from "./components/BaseMapToggle";
-import SearchArea from "./components/SearchArea";
-import LocationButton from "./components/LocationButton";
+import BaseMapToggle from "../v2/map/overlay/toggle/BaseMapToggle";
+import SearchArea from "../v2/map/overlay/button/search/SearchArea";
+import LocationButton from "../v2/map/overlay/button/location/LocationButton";
 import isEmpty from 'lodash/isEmpty'
 import isEqual from 'lodash/isEqual'
 import {COUNTY_LAYER, NATION_LAYER, STATE_LAYER} from "../store/ActionTypes";
 import {createPolygonFromBounds, isNestedPolygon} from '../utility/Utilities'
 import flatten from 'lodash/flatten'
 import blocks from '../Blocks'
-import Loading from "../components/loading/Loading";
+import Loading from "../v2/components/loading/Loading";
 import test from '../test'
 import {BLOCK, CITY, COUNTY, setColor, STATE} from "../utility/Constants";
 import Polygons from "./polygon/Polygons";
-import Legend from "./components/Legend";
+import Legend from "../v2/map/overlay/legend/Legend";
 import { FaMask } from 'react-icons/fa'
 
 //TODO: null check the tiles

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import styled from "styled-components";
 import {Marker, Polygon, Popup} from 'react-leaflet'
-import {locationPin} from "../pins/LocationPin";
+import {locationPin} from "../../v2/map/overlay/pin/location/LocationPin";
 import * as turf from "@turf/turf";
 
 const Poly = styled(Polygon)`

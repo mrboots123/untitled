@@ -17,15 +17,16 @@
     bottom: 25px;
 }
 .map-legend{
-    top: 10%;
+    top: 2%;
     right: 10px;
     width: 150px;
 }
 .map-redoSearch{
-    top: 10%;
+    top: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 
 
 .ReactModal__Overlay {
@@ -173,3 +174,11 @@ input[type=search]{
     fill: red;
 }
 
+
+input[type=checkbox]
+{
+    /* Double-sized Checkboxes */
+
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    padding: 10px;
+}

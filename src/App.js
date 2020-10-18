@@ -1,187 +1,202 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
+import InjusticeMap from './map/InjusticeMap'
 import {connect} from "react-redux";
-import {
-    fetchCrimeData,
-    fetchLocations,
-    fetchTilesLayer,
-    setBounds,
-    setFilters,
-    setSelected,
-    setViewPort
-} from "./store/actions";
-
+import {fetchDataLayer, fetchLocations, setBounds, setFilters, setViewPort} from "./store/actions";
+import {IoMdArrowDropright, IoMdArrowDropleft, IoIosClose} from 'react-icons/io'
+import ReactTooltip from "react-tooltip";
+import LocationSearchInput from './map/components/Search'
+import ExpandPanel from './components/panel/ExpandPanelButton'
 
 import  'animate.css/animate.css'
-
-
-
-import  queryString  from 'query-string'
-import {withRouter} from "react-router-dom";
-import { push } from 'connected-react-router'
+import styled, { keyframes } from 'styled-components';
+import { slideInLeft } from 'react-animations';
 import SidePanelContainer from "./components/panel/SidePanelContainer";
 import CheckBoxList from "./components/panel/CheckBoxList";
 
+import list from './Income_Layers'
+import races from './Race_Layers'
+import ages from './Age_Layers'
+import ReactHighcharts from "react-highcharts";
+// const ReactHighcharts = require('react-highcharts');
+
+const chartOptions = {
+    chart: {
+        renderTo: 'container',
+        type: 'pie',
+        height: 200
+    },
+    title: {
+        text: 'Race'
+    },
+    yAxis: {
+        title: {
+            text: 'Total percent market share'
+        }
+    },
+
+    plotOptions: {
+        pie: {
+            shadow: false
+        },
+        series: {
+            states: {
+                hover: {
+                    enabled: false
+                }
+            }
+        }
+    },
+    tooltip: {
+        formatter: function() {
+            return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+        },
+        enabled: false
+    },
+    series: [{
+        name: 'Browsers',
+        data: [["Firefox",6],["MSIE",4],["Chrome",7]],
+        size: '100%',
+        innerSize: '60%',
+        showInLegend:false,
+        dataLabels: {
+            enabled: false
+        }
+    }]
+};
 class App extends Component {
     constructor(props){
         super(props)
 
         this.state = {
             expanded: true,
+            series: [{
+                name: 'Gases',
+                data: [
+                    {
+                        name: 'Argon',
+                        y: 0.9,
+                        color: '#3498db'
+                    },
+                    {
+                        name: 'Nitrogen',
+                        y: 78.1,
+                        color: '#9b59b6'
+                    },
+                    {
+                        name: 'Oxygen',
+                        y: 20.9,
+                        color: '#2ecc71'
+                    },
+                    {
+                        name: 'Trace Gases',
+                        y: 0.1,
+                        color: '#f1c40f'
+                    }
+                ]
+            }]
         }
-
-        this.setQueryParams = this.setQueryParams.bind(this)
-    }
-
-    componentDidMount(){
-        //TODO:  this is for when we actually grab from url and hydrate
-        //TODO: give aliases to filters, adding the filter name to the url is causing too much encoding
-
-
-            const { filters  } = queryString.parse(this.props.path.search)
-            if(filters){
-                this.props.setFilters(filters.split(','))
-            }
-
-
-            //TODO: make a call to the server for the new tiles based on the new hydrated props
-
-    }
-
-    componentDidUpdate(prevProps, prevState){
-
-    }
-
-    setQueryParams() {
-
-        //TODO: the clear button should remove the filter query from the url
-
-        let query = {}
-
-
-        if(this.props.filters.length > 0){
-            query.filters =  this.props.filters.join(',')
-        }
-        if(this.props.bounds){
-            if(this.props.bounds[0].length === 2){
-                query.nw = this.props.bounds[0].join(',')
-            }
-            if(this.props.bounds[1].length === 2){
-                query.se = this.props.bounds[1].join(',')
-            }
-
-        }
-
-        this.props.push(`?${queryString.stringify(query)}`)
-    }
-
-    removeFilterQueryParams() {
-        let params = queryString.parse(this.props.path.search)
-        delete params.filters
-        this.props.push(`?${queryString.stringify(params)}`)
     }
 
 
-  render() {
 
-    return (
-        <div className="container-fluid p-0 vh-100 ">
-            <div className="row no-gutters p-0 h-100 ">
-                {/*{*/}
-                {/*    this.props.filtersList &&*/}
-                {/*    this.props.filtersList.map(filter =>*/}
-                {/*        <CheckBoxList key={filter.filter_name} filters={this.props.filters} setFilters={this.props.setFilters} items={filter.list} header={filter.filter_name}/>*/}
-                {/*    )*/}
-                {/*}*/}
-                {
-                    /*
-                                    <ExpandPanel expanded={this.state.expanded} onExpandClick={() => {this.setState({expanded: !this.state.expanded})}}/>
+    render() {
+        return (
+            <div className="container-fluid p-0 vh-100 ">
+                <div className="row no-gutters p-0 h-100 ">
 
-                <div className={`${this.state.expanded ? 'col-sm-3': 'd-none'} h-100 border-right  `}>
 
-                    <div className="d-flex flex-column h-100">
-                        <div className="pt-3 pb-3  bg-primary">
-                            <LocationSearchInput fetchPlaces={this.props.fetchPlaces} places={this.props.places} setViewport={this.props.setViewport} />
-                        </div>
-                        <div className="pt-2 pb-2 bg-light pl-3 border-bottom"> Filters </div>
+                    <ExpandPanel expanded={this.state.expanded} onExpandClick={() => {this.setState({expanded: !this.state.expanded})}}/>
 
-                        <div className="pt-2   d-flex  flex-column flex-fill overflow-auto">
+                    <div className={`${this.state.expanded ? 'col-sm-3': 'd-none'} h-100 border-right  `}>
 
-                            {
-                                this.props.filtersList &&
-                                    this.props.filtersList.map(filter =>
-                                        <CheckBoxList key={filter.filter_name} filters={this.props.filters} setFilters={this.props.setFilters} items={filter.list} header={filter.filter_name}/>
-                                    )
-                            }
+                        <div className="d-flex flex-column h-100">
+                            <div className="pt-3 pb-3  bg-primary">
+                                <LocationSearchInput fetchPlaces={this.props.fetchPlaces} places={this.props.places} setViewport={this.props.setViewport} />
+                            </div>
+                            <div className="pt-2 pb-2 bg-light pl-3 border-bottom"> Filters </div>
 
-                        </div>
-
-                        <div className='d-flex   content applied-height p-3 border-top align-items-center pt-4'>
-                            <div className="col-lg-12 row no-gutters p-0">
-                                <div className="col-lg-6 pr-1">
-                                    <button type="button" className="btn btn-outline-primary btn-block  " onClick={() => {
-                                        this.props.setFilters([])
-                                        this.removeFilterQueryParams()
-                                    }}>Clear</button>
-
-                                </div>
-                                <div className="pl-1 col-lg-6">
-                                    <button type="button" className="btn btn-primary btn-block " onClick={() => this.setQueryParams()}>Apply</button>
-
+                            <div className="pt-2   d-flex  flex-column  ">
+                                <div className="overflow-auto">
+                                    <CheckBoxList filters={this.props.filters} setFilters={this.props.setFilters} items={list} header='Income' />
+                                    <CheckBoxList filters={this.props.filters} setFilters={this.props.setFilters} items={races} header='Race'/>
+                                    <CheckBoxList filters={this.props.filters} setFilters={this.props.setFilters} items={ages} header='Age'/>
                                 </div>
                             </div>
+
+                            <div className='d-flex  applied-height p-3 border-top align-items-center'>
+                                <button type="button" className="btn btn-outline-primary btn-sm filter-button mr-3" onClick={() => this.props.setFilters([])}>Clear</button>
+                                <button type="button" className="btn btn-primary filter-button" onClick={() => console.log('send http and append ot header')}>Apply</button>
+
+
+                            </div>
+
                         </div>
 
                     </div>
 
+                    <div className="col-sm-3">
+                        <div className="col-lg-12">
+                            <IoIosClose></IoIosClose>
+                        </div>
+
+                        <div className="col-lg-12 pt-3 pb-3 border-bottom">
+                            <h5 className="text-center font-weight-normal">Block 41232</h5>
+                        </div>
+
+                        <div className="col-lg-12 row border-bottom p-0 no-gutters">
+
+
+                            <div className="col-lg-6 text-center border-right pt-2 pb-2">
+                                <h5 className="font-weight-normal text-primary">Salary</h5>
+                                <h5 className="text-success"> 92k</h5>
+                            </div>
+                            <div className="col-lg-6 text-center pt-2 pb-2">
+                                <h5 className="font-weight-normal text-primary">Age</h5>
+                                <h5 className="text-success"> 36</h5>
+                            </div>
+                        </div>
+
+
+
+                        <div className="col-lg-12 row p-0 pt-3 no-gutters border-bottom">
+                            <div className="col-lg-12 text-center">
+                                <ReactHighcharts config={chartOptions}> </ReactHighcharts>
+                            </div>
+                        </div>
+                        <div className="col-lg-12 row p-0 pt-3 no-gutters border-bottom">
+                            <div className="col-lg-12 text-center">
+                                <h5 className="text-primary font-weight-normal">Crime</h5>
+                            </div>
+                            <div className="col-lg-12">
+                                <div>Personal</div>
+                                <div>Property </div>
+                                <div>Inchoate</div>
+                                <div>Statutory</div>
+                            </div>
+                        </div>
+
+                        <div>horizontal bar chart</div>
+                        <div> Home Value: </div>
+                        <div>average price, icon with up or down signaling if the area is going up </div>
+                        <div> crime rate for the area </div>
+                    </div>
+
+                    <div className={`${this.state.expanded ? 'col-sm-6' : 'col-sm-12'}`}>
+                        <InjusticeMap
+                            viewport={this.props.viewport}
+                            bounds={this.props.bounds}
+                            setViewport={this.props.setViewport}
+                            layer={this.props.layer}
+                            fetchLayers={this.props.fetchLayers}
+                            setBounds={this.props.setBounds}
+                        />
+                    </div>
+
                 </div>
 
-                {
-                    this.props.selected !== -1 &&
-                    <BlockInformation
-                        setSelected={this.props.setSelected}
-                        tile={this.props.tiles[this.props.selected]}
-                    />
-                }
-                     */
-                }
-
-
-
-
-
-{
-    /*
-    className={`${this.props.selected !== -1 && this.state.expanded ? 'col-sm-6' : (this.props.selected > 0 && !this.state.expanded) || (this.props.selected === -1 && this.state.expanded) ? 'col-sm-9' : 'col-sm-12'}`}
-     */
-}
-                {/*<div className="col-sm-12">*/}
-                {/*    <InjusticeMap*/}
-                {/*        viewport={this.props.viewport}*/}
-                {/*        bounds={this.props.bounds}*/}
-                {/*        setViewport={this.props.setViewport}*/}
-                {/*        layer={this.props.tiles}*/}
-                {/*        fetchLayers={this.props.fetchLayers}*/}
-                {/*        setBounds={this.props.setBounds}*/}
-                {/*        setQueryParams={this.setQueryParams}*/}
-                {/*        setSelected={this.props.setSelected}*/}
-                {/*        selected={this.props.selected}*/}
-                {/*        setTest={this.props.fetchLayers}*/}
-                {/*        test={this.props.test}*/}
-                {/*        fetchTiles={this.props.fetchTiles}*/}
-                {/*        isLoadingTiles={this.props.isFetchingTiles}*/}
-                {/*        filter={this.props.filters}*/}
-                {/*        fetchCrimeData={this.props.fetchCrimeData}*/}
-                {/*        crimes={this.props.crimes}*/}
-
-                {/*    />*/}
-                {/*</div>*/}
-
-                <SidePanelContainer/>
             </div>
-
-        </div>
-    );
-  }
+        );
+    }
 }
 
 function mapStateToProps(state, props){
@@ -190,31 +205,17 @@ function mapStateToProps(state, props){
         places: state.placesReducer.places,
         viewport: state.setReducer.viewport,
         bounds: state.setReducer.bounds,
-        filters: state.setReducer.filters,
-        selected: state.setReducer.selected,
-        path: state.router.location,
-        filtersList: state.filtersReducer.filtersList,
-        test: state.dataLayerReducer.test,
-        tiles: state.dataLayerReducer.tiles,
-        isFetchingTiles: state.dataLayerReducer.tile_loading,
-        crimes: state.crimesReducer.crimes
+        filters: state.setReducer.filters
     };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
+        fetchLayers: (layer) => dispatch(fetchDataLayer(layer)),
         fetchPlaces: (query) => dispatch(fetchLocations(query)),
-        fetchTiles: (bounds, filters, layer) => dispatch(fetchTilesLayer(bounds,filters,layer)),
         setViewport: (viewport) => dispatch(setViewPort(viewport)),
         setBounds: (bounds) => dispatch(setBounds(bounds)),
-        setFilters: (filters) => dispatch(setFilters(filters)),
-        setSelected: (selected) => dispatch(setSelected(selected)),
-        fetchCrimeData: (center, radius) => dispatch(fetchCrimeData(center,radius))
+        setFilters: (filters) => dispatch(setFilters(filters))
     }
 }
-
-
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(connect(null, { push })(withRouter(props => <App {...props}/>)))
+export default connect(mapStateToProps, mapDispatchToProps)(App)

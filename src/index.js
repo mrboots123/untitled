@@ -31,6 +31,7 @@ import {syncHistoryWithStore, routerReducer, routerMiddleware} from 'react-route
 import { createBrowserHistory } from 'history'
 
 import { push } from 'connected-react-router'
+import {StateProvider} from "./v2/context/store";
 
 const middleware = [ thunk ];
 const composeEnhancer =
@@ -46,26 +47,26 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 const history = createBrowserHistory()
-
-const store = createStore(
-    rootReducer(history),
-    composeEnhancer(
-        applyMiddleware(
-            routerMiddleware(history),
-            thunk
-        )
-    ),
-)
-
-
-
-store.dispatch(fetchFilters())
+//
+// const store = createStore(
+//     rootReducer(history),
+//     composeEnhancer(
+//         applyMiddleware(
+//             routerMiddleware(history),
+//             thunk
+//         )
+//     ),
+// )
+//
+//
+//
+// store.dispatch(fetchFilters())
 render(
 
-    <BrowserRouter>
-        <Provider store={store}>
-            <App history={history}/>
-        </Provider>
-    </BrowserRouter>,
+
+        <StateProvider>
+            <App />
+        </StateProvider>
+    ,
     document.getElementById('root')
 )

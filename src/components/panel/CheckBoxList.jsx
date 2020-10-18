@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CheckBox from "../Checkbox";
+import CheckBox from "../../v2/components/checkbox/Checkbox";
 import {IoIosAdd, IoIosRemove} from "react-icons/io";
 
 class CheckBoxList extends Component {

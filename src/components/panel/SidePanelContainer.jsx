@@ -6,7 +6,7 @@ import LocationSearchInput from "../../map/components/Search";
 import { CSSTransition } from 'react-transition-group';
 
 import {bounce} from "react-animations";
-import CheckBox from "../Checkbox";
+import CheckBox from "../../v2/components/checkbox/Checkbox";
 
 
 class SidePanelContainer extends Component{
