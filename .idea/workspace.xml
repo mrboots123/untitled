@@ -20,33 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1b3af7f-03a9-4017-80e5-858a4f9d6004" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/v2/components/checkbox/Checkbox.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/v2/map/overlay/legend/Legend.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/v2/map/overlay/pin/marker/Marker.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/location_pin.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/location_pin.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Checkbox.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loading/Loading.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/v2/components/loading/Loading.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/panel/CheckBoxList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/panel/CheckBoxList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/panel/SidePanelContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/panel/SidePanelContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/InjusticeMap.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/InjusticeMap.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/components/BaseMapToggle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/v2/map/overlay/toggle/BaseMapToggle.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/components/Legend.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/components/LocationButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/v2/map/overlay/button/location/LocationButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/components/SearchArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/v2/map/overlay/button/search/SearchArea.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/pins/LocationPin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/v2/map/overlay/pin/location/LocationPin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/pins/Marker.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/pins/PinFilled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/pins/PinFilled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/pins/UserLocationPin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/v2/map/overlay/pin/location/UserLocationPin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/pins/markerFilled.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/markerFilled.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/polygon/EnhancedPolygon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/polygon/EnhancedPolygon.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/polygon/Polygons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/polygon/Polygons.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/v2/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/v2/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/v2/map/InjusticeMap.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/v2/map/InjusticeMap.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/v2/test.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/v2/map/overlay/pin/marker/Marker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/v2/map/overlay/pin/marker/Marker.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +164,7 @@
       <workItem from="1602626258897" duration="17017000" />
       <workItem from="1602684362128" duration="5535000" />
       <workItem from="1602722757582" duration="14699000" />
-      <workItem from="1602852308129" duration="17683000" />
+      <workItem from="1602852308129" duration="18716000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1553443705899</created>
@@ -238,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602655880730</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="started work on v2">
+      <created>1602998566615</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1602998566615</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,10 +258,11 @@
       <screen x="0" y="23" width="1440" height="781" />
     </state>
     <state x="458" y="166" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.781@0.23.1440.781" timestamp="1602970748694" />
-    <state x="297" y="23" key="CommitChangelistDialog2" timestamp="1602655880503">
-      <screen x="0" y="23" width="1440" height="778" />
+    <state x="297" y="23" key="CommitChangelistDialog2" timestamp="1602998566331">
+      <screen x="0" y="23" width="1440" height="781" />
     </state>
     <state x="297" y="23" key="CommitChangelistDialog2/0.23.1440.778@0.23.1440.778" timestamp="1602655880503" />
+    <state x="297" y="23" key="CommitChangelistDialog2/0.23.1440.781@0.23.1440.781" timestamp="1602998566331" />
     <state x="100" y="123" width="1240" height="582" key="DiffContextDialog" timestamp="1602367209698">
       <screen x="0" y="23" width="1440" height="782" />
     </state>
@@ -310,10 +295,11 @@
       <screen x="0" y="23" width="1440" height="778" />
     </state>
     <state x="501" y="139" key="RollbackChangesDialog/0.23.1440.778@0.23.1440.778" timestamp="1602732487150" />
-    <state x="320" y="139" key="Vcs.Push.Dialog.v2" timestamp="1602655882516">
-      <screen x="0" y="23" width="1440" height="778" />
+    <state x="320" y="139" key="Vcs.Push.Dialog.v2" timestamp="1602998568100">
+      <screen x="0" y="23" width="1440" height="781" />
     </state>
     <state x="320" y="139" key="Vcs.Push.Dialog.v2/0.23.1440.778@0.23.1440.778" timestamp="1602655882516" />
+    <state x="320" y="139" key="Vcs.Push.Dialog.v2/0.23.1440.781@0.23.1440.781" timestamp="1602998568100" />
     <state x="100" y="123" width="1240" height="578" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602997591421">
       <screen x="0" y="23" width="1440" height="778" />
     </state>

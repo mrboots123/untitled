@@ -159,7 +159,7 @@ class InjusticeMap extends Component {
      }
 
     render() {
-        const { state: {  crimes, geographies, selectedGeography } } = this.context;
+        const { state: {  crimes, geographies, selectedCrime, selectedGeography } } = this.context;
         const { isBaseMap, isRedoSearch, userLocation, viewport } = this.state;
         return <Fragment>
             {
@@ -225,7 +225,7 @@ class InjusticeMap extends Component {
                         }
                         {
                             crimes &&
-                                crimes.map(crime => <MarkerIcon key={crime.cdid} crime={crime} setViewport={this.setViewport}/>)
+                                crimes.map((crime,index) => <MarkerIcon key={crime.cdid} id={index} crime={crime} setViewport={this.setViewport}/>)
                         }
                     </Map> : <Fragment>
                         <div>Your browser does not support Geolocation</div>
